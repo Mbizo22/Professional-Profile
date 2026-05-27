@@ -1,472 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odwa Nombambela - Professional Profile</title>
-    <style>
-        /* CSS Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odwa Nombambela — CV</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Base styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
+    :root {
+      --sidebar-bg : #1C2B3A;
+      --accent     : #4A7FA0;
+      --accent-lite: #6EB5D4;
+      --side-text  : #C8D8E8;
+      --body-text  : #1E1E1E;
+      --sub-text   : #555555;
+      --rule-color : #3A6A85;
+    }
 
-        /* Header section */
-        header {
-            background: linear-gradient(135deg, #003366 0%, #004d99 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+    html, body {
+      height: 100%;
+      background: #E0E5EA;
+      font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+      color: var(--body-text);
+      font-size: 14px;
+      line-height: 1.5;
+    }
 
-        .header-content {
-            text-align: center;
-        }
+    .cv {
+      display: flex;
+      min-height: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.28);
+    }
 
-        h1 {
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
+    /* ── SIDEBAR ───────────────────────────────────────── */
+    .sidebar {
+      width: 272px;
+      min-width: 272px;
+      background: var(--sidebar-bg);
+      display: flex;
+      flex-direction: column;
+    }
 
-        .contact-info {
-            margin-top: 15px;
-            font-size: 0.95em;
-        }
+    .sidebar-inner {
+      position: sticky;
+      top: 0;
+      max-height: 100vh;
+      overflow-y: auto;
+      padding: 28px 18px;
+      scrollbar-width: none;
+    }
+    .sidebar-inner::-webkit-scrollbar { display: none; }
 
-        .contact-info p {
-            margin: 5px 0;
-        }
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .photo-wrap img {
+      width: 140px;
+      height: 163px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--accent-lite);
+    }
 
-        .contact-info a {
-            color: #ffffff;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.5);
-            transition: border-color 0.3s;
-        }
+    .s-name {
+      color: #fff;
+      font-size: 1.32em;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .s-title {
+      color: var(--accent-lite);
+      font-size: 0.78em;
+      text-align: center;
+      font-style: italic;
+      line-height: 1.5;
+    }
 
-        .contact-info a:hover {
-            border-bottom-color: #ffffff;
-        }
+    .s-sec {
+      color: #fff;
+      font-size: 0.78em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      margin: 20px 0 5px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--rule-color);
+    }
 
-        /* Main content sections */
-        .section {
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
+    .s-contact { display: flex; gap: 7px; margin-top: 5px; align-items: flex-start; }
+    .s-lbl { color: var(--accent-lite); font-size: 0.73em; font-weight: 600; min-width: 38px; flex-shrink: 0; padding-top: 1px; }
+    .s-val { color: var(--side-text); font-size: 0.73em; line-height: 1.5; word-break: break-word; }
+    .s-val a { color: var(--side-text); text-decoration: none; }
+    .s-val a:hover { color: var(--accent-lite); }
 
-        h2 {
-            color: #003366;
-            border-bottom: 3px solid #003366;
-            padding-bottom: 12px;
-            margin-bottom: 25px;
-            font-size: 1.8em;
-            font-weight: 600;
-        }
+    .s-item { display: flex; align-items: flex-start; gap: 7px; margin-top: 5px; color: var(--side-text); font-size: 0.73em; line-height: 1.5; }
+    .s-item::before { content: "○"; color: var(--accent-lite); flex-shrink: 0; font-size: 0.78em; margin-top: 1px; }
 
-        /* Professional Summary */
-        .summary-text {
-            font-size: 1.05em;
-            line-height: 1.8;
-            color: #444;
-        }
+    .s-lang { display: flex; justify-content: space-between; align-items: center; margin-top: 5px; }
+    .s-lang-name { color: var(--side-text); font-size: 0.73em; display: flex; align-items: center; gap: 7px; }
+    .s-lang-name::before { content: "○"; color: var(--accent-lite); font-size: 0.78em; }
+    .s-lang-level { color: var(--accent-lite); font-size: 0.73em; font-weight: 700; }
 
-        /* Education and Experience items */
-        .item {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
-        }
+    /* ── CONTENT ───────────────────────────────────────── */
+    .content { flex: 1; background: #fff; padding: 32px 32px 48px 26px; }
 
-        .item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
+    .r-sec {
+      font-size: 0.97em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: var(--sidebar-bg);
+      border-bottom: 1.5px solid var(--accent);
+      padding-bottom: 4px;
+      margin: 26px 0 12px;
+    }
+    .r-sec:first-child { margin-top: 0; }
 
-        .item h3 {
-            color: #003366;
-            margin-bottom: 5px;
-            font-size: 1.3em;
-            font-weight: 600;
-        }
+    .entry { margin-bottom: 15px; }
+    .entry:last-child { margin-bottom: 0; }
 
-        .item .date {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 10px;
-            font-size: 0.95em;
-        }
+    .entry-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+    .entry-title { font-weight: 700; font-size: 0.92em; color: var(--body-text); }
+    .entry-date  { color: var(--sub-text); font-style: italic; font-size: 0.82em; white-space: nowrap; }
+    .entry-org   { color: var(--sub-text); font-style: italic; font-size: 0.83em; margin: 2px 0 4px; }
+    .entry-detail { color: #777; font-size: 0.80em; margin-top: 3px; line-height: 1.55; }
 
-        .item .institution {
-            color: #555;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
+    .cv-ul { list-style: none; margin: 5px 0 0 2px; }
+    .cv-ul li { position: relative; padding-left: 15px; font-size: 0.86em; line-height: 1.62; margin-bottom: 5px; color: var(--body-text); }
+    .cv-ul li::before { content: "•"; color: var(--accent); position: absolute; left: 0; font-weight: 700; font-size: 1.1em; line-height: 1.45; }
 
-        .coursework {
-            font-size: 0.95em;
-            color: #555;
-            margin-top: 8px;
-            font-style: italic;
-        }
+    .profile-p { font-size: 0.875em; line-height: 1.72; color: var(--body-text); text-align: justify; }
 
-        /* Skills section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+    .ref-row { font-size: 0.86em; color: var(--body-text); margin-bottom: 6px; }
+    .ref-row span { color: var(--sub-text); }
 
-        .skill-category {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #003366;
-        }
-
-        .skill-category h3 {
-            color: #003366;
-            margin-bottom: 12px;
-            font-size: 1.1em;
-        }
-
-        .skill-category p {
-            color: #555;
-            line-height: 1.8;
-            font-size: 0.95em;
-        }
-
-        /* Languages section */
-        .languages-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .language-item {
-            background-color: #f0f4f8;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: 500;
-            color: #003366;
-            border: 2px solid #e0e7ee;
-        }
-
-        /* Certifications */
-        .cert-list {
-            list-style: none;
-        }
-
-        .cert-list li {
-            padding: 10px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .cert-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #003366;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        /* References */
-        .references-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .reference-card {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #003366;
-        }
-
-        .reference-card h3 {
-            color: #003366;
-            margin-bottom: 8px;
-            font-size: 1.15em;
-        }
-
-        .reference-card p {
-            color: #555;
-            margin: 4px 0;
-            font-size: 0.95em;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            header {
-                padding: 25px 20px;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .section {
-                padding: 20px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .languages-list {
-                flex-direction: column;
-            }
-        }
-
-        /* List styles */
-        ul {
-            list-style-position: inside;
-            margin-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        /* Interests list */
-        .interests-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            list-style: none;
-            margin-left: 0;
-        }
-
-        .interests-list li {
-            background-color: #f0f4f8;
-            padding: 8px 16px;
-            border-radius: 20px;
-            color: #003366;
-            font-weight: 500;
-            font-size: 0.95em;
-        }
-    </style>
+    @media (max-width: 680px) {
+      .cv { flex-direction: column; }
+      .sidebar { width: 100%; min-width: 0; }
+      .sidebar-inner { position: static; max-height: none; }
+      .content { padding: 24px 18px; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>ODWA NOMBAMBELA</h1>
-            <div class="contact-info">
-                <p>102 Allcock Street, Colbyn, Pretoria, 0083</p>
-                <p>📞 071 553 0288 | 082 373 8098</p>
-                <p>📧 <a href="mailto:o.nombambela@gmail.com">o.nombambela@gmail.com</a></p>
-                <p>
-                    LinkedIn: <a href="https://www.linkedin.com/in/odwa-nombambela" target="_blank">www.linkedin.com/in/odwa-nombambela</a> | 
-                    Portfolio: <a href="https://mbizo22.github.io/Professional-Profile" target="_blank">mbizo22.github.io/Professional-Profile</a>
-                </p>
-            </div>
-        </div>
-    </header>
+<div class="cv">
 
-    <main>
-        <section class="section">
-            <h2>Professional Summary</h2>
-            <p class="summary-text">
-                Computer Engineering graduate with hands-on experience in embedded systems, computer vision, and machine learning. 
-                Developed an automated 3D plant phenotyping system achieving 93.4% biomass estimation accuracy using dual RGB-D cameras, 
-                custom hardware integration, and advanced point cloud processing. Strong foundation in Python programming, 
-                hardware-software integration, and first-principles algorithm implementation. Seeking opportunities to apply technical 
-                skills in embedded systems, computer vision, or IoT development.
-            </p>
-        </section>
+  <aside class="sidebar">
+    <div class="sidebar-inner">
 
-        <section class="section">
-            <h2>Education</h2>
-            <div class="item">
-                <h3>Bachelor of Engineering in Computer Engineering</h3>
-                <p class="institution">University of Pretoria</p>
-                <div class="date">Expected Graduation: 2025</div>
-                <p class="coursework">
-                    <strong>Relevant Coursework:</strong> Embedded Systems, Computer Vision, Machine Learning, Digital Signal Processing, 
-                    Microcontrollers, Software Engineering, Data Structures & Algorithms
-                </p>
-            </div>
-            <div class="item">
-                <h3>Short Course: I-SET Robotics Components and Pedagogy</h3>
-                <p class="institution">University of South Africa (UNISA)</p>
-                <div class="date">2022 (Completed)</div>
-            </div>
-            <div class="item">
-                <h3>Matric Certificate</h3>
-                <p class="institution">Selborne College</p>
-                <div class="date">2015 (Completed)</div>
-            </div>
-        </section>
+      <div class="photo-wrap">
+        <img src="Picture_of_me.jpeg" alt="Odwa Nombambela">
+      </div>
 
-        <section class="section">
-            <h2>Technical Projects</h2>
-            <div class="item">
-                <h3>Automated 3D Plant Phenotyping System | Final Year Project (EPR402)</h3>
-                <p class="institution">University of Pretoria | Supervisor: Prof. H. Myburgh</p>
-                <div class="date">February 2025 - November 2025</div>
-                <ul>
-                    <li>Designed and implemented a complete automated system for non-destructive plant biomass estimation using dual Kinect V2 RGB-D cameras mounted on a custom 6×3×2m gantry structure</li>
-                    <li>Developed five-stage processing pipeline from scratch: preprocessing, sequential ICP registration, 3D reconstruction, dimensional analysis, and Random Forest prediction</li>
-                    <li>Achieved 93.4% biomass estimation accuracy exceeding 90% target specification through voxel-based volume calculations and optimized 6-feature Random Forest model</li>
-                    <li>Implemented first-principles algorithms using NumPy for point cloud registration (RMSE: 14.1mm), grid-based mesh reconstruction, and dimensional analysis</li>
-                    <li>Integrated embedded hardware: ODROID N2+ with Arduino Uno motor controllers, NEMA 23 stepper motors with TB6600 drivers, coordinated via TCP socket communication</li>
-                    <li>Created comprehensive GUI using tkinter with multi-threaded architecture for real-time hardware control, image capture, and data visualization</li>
-                    <li>Delivered complete analysis within 2-minute target timeframe with robust error handling and graceful degradation capabilities</li>
-                </ul>
-            </div>
-        </section>
+      <div class="s-name">Odwa Nombambela</div>
+      <div class="s-title">Computer Engineer<br>IoT &amp; Embedded Systems</div>
 
-        <section class="section">
-            <h2>Work Experience</h2>
-            <div class="item">
-                <h3>IT Support & Administrative Assistant</h3>
-                <p class="institution">NS. Nombambela Inc</p>
-                <div class="date">January 2022 - December 2022</div>
-                <ul>
-                    <li>Managed technology infrastructure maintenance and provided technical IT consultation to staff</li>
-                    <li>Handled front desk operations including customer inquiries, appointment scheduling, and administrative coordination</li>
-                    <li>Maintained document management system and ensured efficient office operations and communication workflows</li>
-                    <li>Provided technical troubleshooting and support for office hardware and software systems</li>
-                </ul>
-            </div>
-            <div class="item">
-                <h3>Community Based Project Volunteer (EBIT WEEK - JCP203)</h3>
-                <p class="institution">University of Pretoria</p>
-                <div class="date">June 2018 - July 2018</div>
-                <ul>
-                    <li>Provided guidance to prospective students and answered questions about university programs and campus life</li>
-                    <li>Conducted campus tours for prospective students and parents, showcasing university facilities and resources</li>
-                    <li>Facilitated communication between prospective students, current students, and university representatives</li>
-                </ul>
-            </div>
-            <div class="item">
-                <h3>Tutor - Professional Orientation (JPO110 & JPO120)</h3>
-                <p class="institution">University of Pretoria</p>
-                <div class="date">February 2017 - November 2017</div>
-                <ul>
-                    <li>Assisted lecturers during classroom sessions, supporting student learning and engagement</li>
-                    <li>Evaluated and marked student assignments, providing detailed feedback on performance</li>
-                    <li>Mentored students through one-on-one consultations, offering academic guidance and support</li>
-                </ul>
-            </div>
-            <div class="item">
-                <h3>Acts of Random Kindness (ARK) - Coordinator</h3>
-                <p class="institution">Selborne College</p>
-                <div class="date">2013 - 2015</div>
-                <ul>
-                    <li>Coordinated communications and organized meetings between school chapter members and partner institutions</li>
-                    <li>Led community service initiatives including soup kitchens and fundraising events (bake sales)</li>
-                    <li>Organized charitable donations and volunteer activities with Breath of Life NPO and Pet Pals animal shelter</li>
-                    <li>Developed leadership and project management skills through multi-year community engagement</li>
-                </ul>
-            </div>
-        </section>
+      <div class="s-sec">Contact</div>
+      <div class="s-contact"><span class="s-lbl">Tel</span><span class="s-val">071 553 0288</span></div>
+      <div class="s-contact"><span class="s-lbl">Email</span><span class="s-val"><a href="mailto:o.nombambela@gmail.com">o.nombambela@gmail.com</a></span></div>
+      <div class="s-contact"><span class="s-lbl">Addr</span><span class="s-val">432 Eton Avenue, Ferndale, Randburg</span></div>
+      <div class="s-contact"><span class="s-lbl">Web</span><span class="s-val"><a href="https://linkedin.com/in/odwa-nombambela" target="_blank">linkedin.com/in/odwa-nombambela</a></span></div>
+      <div class="s-contact"><span class="s-lbl">Web</span><span class="s-val"><a href="https://mbizo22.github.io/Professional-Profile" target="_blank">mbizo22.github.io</a></span></div>
 
-        <section class="section">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <p>Python (NumPy, OpenCV, tkinter, socket programming), C/C++, Java, MATLAB, Assembly, Arduino</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Computer Vision & ML</h3>
-                    <p>3D Reconstruction, Point Cloud Processing, ICP Registration, Random Forest, Feature Engineering, Image Processing</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Embedded Systems</h3>
-                    <p>Arduino Uno, ODROID N2+, Kinect V2 RGB-D Cameras, Stepper Motor Control (TB6600 drivers), Serial Communication</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Software Tools</h3>
-                    <p>Git/GitHub, Fusion 360 (CAD), LaTeX/TeXstudio, Visual Studio Code, Linux/Ubuntu</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Hardware Integration</h3>
-                    <p>Sensor Integration, Motor Control Systems, Client-Server Architecture, TCP/IP Protocols, Robotics Components</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Professional Skills</h3>
-                    <p>Technical Report Writing, Algorithm Development, System Design, Hardware-Software Integration, Debugging, Tutoring & Mentoring</p>
-                </div>
-            </div>
-        </section>
+      <div class="s-sec">Skills</div>
+      <div class="s-item">C/C++, STM32, Embedded Firmware</div>
+      <div class="s-item">MQTT, LoRa, AT Commands, CAT-1 LTE</div>
+      <div class="s-item">React / Vite, Node.js, Express</div>
+      <div class="s-item">PostgreSQL, AWS RDS, Docker</div>
+      <div class="s-item">Python (NumPy, OpenCV, pyotdr)</div>
+      <div class="s-item">OTDR Analysis &amp; Fibre Splicing</div>
+      <div class="s-item">Solar Power System Design</div>
+      <div class="s-item">Git, Linux, LaTeX</div>
 
-        <section class="section">
-            <h2>Certifications & Training</h2>
-            <ul class="cert-list">
-                <li>CISCO CCNA Certified</li>
-                <li>I-Set Robotics Components and Pedagogy - UNISA</li>
-                <li>First Aid Level 3</li>
-            </ul>
-        </section>
+      <div class="s-sec">Languages</div>
+      <div class="s-lang"><span class="s-lang-name">English</span><span class="s-lang-level">Fluent</span></div>
+      <div class="s-lang"><span class="s-lang-name">IsiXhosa</span><span class="s-lang-level">Fluent</span></div>
+      <div class="s-lang"><span class="s-lang-name">IsiZulu</span><span class="s-lang-level">Intermediate</span></div>
+      <div class="s-lang"><span class="s-lang-name">Afrikaans</span><span class="s-lang-level">Basic</span></div>
 
-        <section class="section">
-            <h2>Languages</h2>
-            <div class="languages-list">
-                <div class="language-item">English (Fluent)</div>
-                <div class="language-item">IsiXhosa (Fluent)</div>
-                <div class="language-item">IsiZulu (Intermediate)</div>
-                <div class="language-item">Afrikaans (Basic)</div>
-            </div>
-        </section>
+      <div class="s-sec">Interests</div>
+      <div class="s-item">Programming &amp; Open Source</div>
+      <div class="s-item">Fibre &amp; RF Infrastructure</div>
+      <div class="s-item">Photography</div>
+      <div class="s-item">Squash &amp; Rugby</div>
+      <div class="s-item">Technical Reading</div>
 
-        <section class="section">
-            <h2>Interests & Activities</h2>
-            <ul class="interests-list">
-                <li>Programming & Software Development</li>
-                <li>Photography</li>
-                <li>Sports (Squash, Rugby)</li>
-                <li>Gaming</li>
-                <li>Technical Reading</li>
-            </ul>
-        </section>
+    </div>
+  </aside>
 
-        <section class="section">
-            <h2>References</h2>
-            <div class="references-grid">
-                <div class="reference-card">
-                    <h3>Mr Andile Baleni</h3>
-                    <p>Associate at NS. Nombambela Inc</p>
-                    <p><strong>Cell:</strong> 082 432 6403</p>
-                </div>
-                <div class="reference-card">
-                    <h3>Mr Tony Yard</h3>
-                    <p>Landlord</p>
-                    <p><strong>Cell:</strong> 082 374 4421</p>
-                </div>
-            </div>
-        </section>
-    </main>
+  <main class="content">
 
-    <footer style="text-align: center; padding: 20px; color: #666; font-size: 0.9em;">
-        <p>&copy; 2025 Odwa Nombambela. All rights reserved.</p>
-    </footer>
+    <div class="r-sec">Profile</div>
+    <p class="profile-p">
+      Newly graduated Computer Engineer (BEng, University of Pretoria – qualification obtained
+      November 2025, graduated May 2026) with a strong foundation across the full engineering
+      stack: from low-level C firmware on STM32 microcontrollers to cloud-connected IoT platforms
+      and React/Node.js development. Currently working at Take Note IT (TNIT) as an R&amp;D
+      engineer, contributing to live infrastructure protection deployments in the City of Ekurhuleni.
+      Proven ability to independently design, debug, and deliver complex systems under real-world
+      field constraints. Equally comfortable writing interrupt-driven firmware, analysing OTDR
+      traces on live fibre links, or architecting PostgreSQL-backed web platforms on AWS.
+    </p>
+
+    <div class="r-sec">Work Experience</div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">R&amp;D Engineer</span>
+        <span class="entry-date">January 2026 – Present</span>
+      </div>
+      <div class="entry-org">Take Note IoT (TNIoT)</div>
+      <ul class="cv-ul">
+        <li>Developed base station firmware in C on the STM32F030C8T6 MCU, integrating RFM95W LoRa (868 MHz), LIS2DW12 accelerometer, and Air780EU CAT-1 LTE module.</li>
+        <li>Resolved full firmware debugging cycle: UART clock errors, AT command parsing, LTE registration, MQTT transaction ordering, ISR race conditions, and RTC alarm re-arming edge cases.</li>
+        <li>Optimised node deep-sleep current toward 15 µA by disabling SPI1/ADC1 clocks, fixing floating UART RX pins, and driving GSM_ENABLE pin LOW.</li>
+        <li>Built the Aware IoT platform (React/Vite, Node.js/Express, PostgreSQL on AWS RDS, AWS Cognito, MQTT) replacing the legacy alerting stack; Dockerised for AWS deployment.</li>
+        <li>Conducted OTDR testing and fibre fusion splicing on live single-mode links; built a Python PDF-report tool using pyotdr &amp; ReportLab.</li>
+        <li>Designed solar-powered remote base stations (100 W panel, SLA/LiFePO4 batteries) with battery-autonomy calculations for South African conditions.</li>
+        <li>Deployed and maintained a Telegram monitoring bot on a Jetson Nano tracking ~15 base stations across the East Rand.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">IT Support &amp; Administrative Assistant</span>
+        <span class="entry-date">Jan 2022 – Dec 2022</span>
+      </div>
+      <div class="entry-org">NS. Nombambela Inc</div>
+      <ul class="cv-ul">
+        <li>Managed technology infrastructure and IT consultation; handled front desk operations and document management systems.</li>
+        <li>Handled front desk operations including customer inquiries, appointment scheduling, and administrative coordination.</li>
+        <li>Maintained document management system and ensured efficient office operations and communication workflows.</li>
+        <li>Provided technical troubleshooting and support for office hardware and software systems.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Tutor – Professional Orientation (JPO110 &amp; JPO120)</span>
+        <span class="entry-date">Feb 2017 – Nov 2017</span>
+      </div>
+      <div class="entry-org">University of Pretoria</div>
+      <ul class="cv-ul">
+        <li>Assisted lecturers during lectures, and mentored students through one-on-one consultations.</li>
+        <li>Evaluated and marked student assignments, providing detailed feedback on performance.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Community Based Project Volunteer (EBIT WEEK – JCP203)</span>
+        <span class="entry-date">June 2018 – July 2018</span>
+      </div>
+      <div class="entry-org">University of Pretoria</div>
+      <ul class="cv-ul">
+        <li>Provided guidance to prospective students and answered questions about the university programs and campus life.</li>
+        <li>Conducted campus tours for prospective students and parents while facilitating communication between current students, university representatives and soon to be students.</li>
+      </ul>
+    </div>
+
+    <div class="r-sec">Key Technical Project</div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Automated 3D Plant Phenotyping System</span>
+        <span class="entry-date">Feb 2025 – Nov 2025</span>
+      </div>
+      <div class="entry-org">Final Year Project (EPR402), Univ. of Pretoria</div>
+      <ul class="cv-ul">
+        <li>Designed a complete automated system for non-destructive plant biomass estimation using dual Kinect V2 RGB-D cameras on a custom 6×3×2 m gantry; achieved <strong>93.4%</strong> accuracy.</li>
+        <li>5-stage pipeline: preprocessing, sequential ICP registration (RMSE 14.1 mm), 3D reconstruction, dimensional analysis, and a 6-feature Random Forest model.</li>
+        <li>Integrated ODROID N2+ with Arduino Uno motor controllers, NEMA 23 steppers, and TB6600 drivers via TCP sockets; delivered results within 2 minutes via a multi-threaded tkinter GUI.</li>
+      </ul>
+    </div>
+
+    <div class="r-sec">Education</div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">BEng Computer Engineering</span>
+        <span class="entry-date">May 2026</span>
+      </div>
+      <div class="entry-org">University of Pretoria</div>
+      <div class="entry-detail">Qualification obtained: 28 November 2025 &nbsp;|&nbsp; Certificate received: 14 May 2026</div>
+      <div class="entry-detail">Relevant Coursework: Embedded Systems, Computer Vision, Machine Learning, DSP, Microcontrollers, Software Engineering, Data Structures &amp; Algorithms</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Short Course: I-SET Robotics Components and Pedagogy</span>
+        <span class="entry-date">2022</span>
+      </div>
+      <div class="entry-org">University of South Africa (UNISA)</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Matric Certificate</span>
+        <span class="entry-date">2015</span>
+      </div>
+      <div class="entry-org">Selborne College</div>
+    </div>
+
+    <div class="r-sec">Certifications &amp; Training</div>
+    <ul class="cv-ul">
+      <li>CISCO CCNA</li>
+      <li>I-SET Robotics Components and Pedagogy - UNISA (2022)</li>
+      <li>First Aid Level 3</li>
+      <li>Ajax Systems Baseline Intrusion Course (2026)</li>
+    </ul>
+
+    <div class="r-sec">References</div>
+    <div class="ref-row">Mr Andile Baleni - Associate, NS. Nombambela Inc <span>&nbsp;|&nbsp;</span> Cell: 082 432 6403</div>
+    <div class="ref-row">Mr Tony Yard - Landlord <span>&nbsp;|&nbsp;</span> Cell: 082 374 4421</div>
+    <div class="ref-row">Mr Devique Barkley - CEO of Take Note IoT <span>&nbsp;|&nbsp;</span> Cell: 076 730 6720</div>
+
+  </main>
+</div>
 </body>
 </html>
